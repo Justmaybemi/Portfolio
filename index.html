@@ -1,3 +1,66 @@
+  </head>
+
+  <body>
+   <h1>My Portfolio</h1>
+  <p>Welcome to my site.</p>
+  </body>
+</html>
+i just need to link my pdf titled Portfolio.pdf to this, i LREdy uploaded the file to jithub
+
+Nice—this version is perfect for GitHub Pages 👍 (much simpler).
+
+Now let’s link your Portfolio.pdf properly.
+
+🔗 How to link your PDF
+
+Since you already uploaded Portfolio.pdf to your repo on GitHub, you just need to add a link in your HTML.
+
+✅ Add this inside your <body>
+<a href="./Portfolio.pdf" target="_blank">View My Portfolio (PDF)</a>
+💡 What this does
+./Portfolio.pdf → looks for the file in the same folder
+target="_blank" → opens it in a new tab
+📂 Important (make sure this is true)
+
+Your repo should look like this:
+
+index.html
+Portfolio.pdf
+
+👉 Same level (very important)
+
+⚠️ If your PDF is in a folder
+
+If it's like this:
+
+index.html
+files/Portfolio.pdf
+
+Then change the link to:
+
+<a href="./files/Portfolio.pdf" target="_blank">View My Portfolio</a>
+🧪 Optional (make it nicer)
+
+You can style it like a button:
+
+<a href="./Portfolio.pdf" target="_blank" style="display:inline-block; padding:10px 15px; background:black; color:white; text-decoration:none; border-radius:5px;">
+  View My Portfolio
+</a>
+👍 That’s it
+
+Commit → push → refresh your GitHub Pages site
+Click the link → PDF opens
+
+If it doesn’t work, send me:
+
+your repo structure (screenshot or list of files)
+
+and I’ll spot the issue instantly 👀
+
+retyo the who thing lol witht ht pdf inside to viw <a href="./Portfolio.pdf" target="_blank">View My Portfolio (PDF)</a>
+
+Here’s your full HTML file cleaned up with the PDF link added properly 👇
+
 <!doctype html>
 <html lang="en-CA">
   <head>
@@ -16,7 +79,7 @@
     <meta name="robots" content="index, follow" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/images/logo.png" />
+    <link rel="icon" type="image/png" href="./images/logo.png" />
 
     <!-- Open Graph (for sharing links) -->
     <meta property="og:type" content="website" />
@@ -25,7 +88,7 @@
       property="og:description"
       content="Explore creative work, writing, and visual projects by Your Name."
     />
-    <meta property="og:image" content="/images/cover-image.jpg" />
+    <meta property="og:image" content="./images/cover-image.jpg" />
 
     <!-- Theme color -->
     <meta name="theme-color" content="#000000" />
@@ -37,9 +100,19 @@
     />
   </head>
 
-  <body>
-   <h1>My Portfolio</h1>
-  <p>Welcome to my site.</p>
+  <body style="font-family: Roboto, sans-serif; text-align: center; padding: 50px;">
+
+    <h1>My Portfolio</h1>
+    <p>Welcome to my site.</p>
+
+    <!-- PDF Link -->
+    <a 
+      href="./Portfolio.pdf" 
+      target="_blank"
+      style="display:inline-block; margin-top:20px; padding:12px 18px; background:black; color:white; text-decoration:none; border-radius:6px;"
+    >
+      View My Portfolio (PDF)
+    </a>
+
   </body>
 </html>
-
