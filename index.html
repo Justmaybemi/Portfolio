@@ -16,66 +16,112 @@
     <meta name="robots" content="index, follow" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./images/logo.png" />
-
-    <!-- Open Graph (for sharing links) -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Your Name | Portfolio" />
-    <meta
-      property="og:description"
-      content="Explore creative work, writing, and visual projects by Your Name."
-    />
-    <meta property="og:image" content="./images/cover-image.jpg" />
-
-    <!-- Theme color -->
-    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/png" href="./logo.png" />
 
     <!-- Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
       rel="stylesheet"
     />
+
+    <style>
+      body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        line-height: 1.6;
+        color: #222;
+      }
+      header {
+        background: #111;
+        color: white;
+        padding: 50px 20px;
+        text-align: center;
+      }
+      header h1 {
+        margin: 0 0 10px 0;
+        font-size: 3em;
+      }
+      header p {
+        margin: 0;
+        font-size: 1.2em;
+      }
+      section {
+        padding: 50px 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      section:nth-child(even) {
+        background: #f5f5f5;
+      }
+      section h2 {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 2em;
+      }
+      img.portfolio-page {
+        display: block;
+        width: 80%;
+        margin: 20px auto;
+        border-radius: 10px;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+      }
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        background: #111;
+        color: white;
+      }
+    </style>
   </head>
 
-<body style="font-family: Roboto, sans-serif; margin:0;">
+  <body>
 
-  <!-- HEADER -->
-  <header style="background:black; color:white; padding:40px; text-align:center;">
-    <h1>Your Name</h1>
-    <p>Portfolio</p>
-  </header>
+    <!-- HEADER -->
+    <header>
+      <h1>Your Name</h1>
+      <p>Creative Portfolio</p>
+    </header>
 
-  <!-- ABOUT -->
-  <section style="padding:40px;">
-    <h2>About Me</h2>
-    <p>
-      Write what was on your first page here. Who you are, what you do, etc.
-    </p>
-  </section>
+    <!-- ABOUT SECTION -->
+    <section>
+      <h2>About Me</h2>
+      <p>
+        Write a short introduction here. Include who you are, what you do, and what makes your work special.
+      </p>
+      <!-- Example image if needed -->
+      <!-- <img src="./page1.png" alt="About me image" class="portfolio-page" /> -->
+    </section>
 
-  <!-- SKILLS -->
-  <section style="padding:40px; background:#f5f5f5;">
-    <h2>Skills</h2>
-    <p>
-      List your skills from the PDF.
-    </p>
-  </section>
+    <!-- SKILLS SECTION -->
+    <section>
+      <h2>Skills</h2>
+      <p>
+        List your key skills here. For example: Web Development, Graphic Design, UX/UI, Writing, etc.
+      </p>
+    </section>
 
-  <!-- PROJECTS -->
-  <section style="padding:40px;">
-    <h2>Projects</h2>
-    <p>
-      Describe your projects from the PDF.
-    </p>
-  </section>
+    <!-- PROJECTS / PORTFOLIO SECTION -->
+    <section>
+      <h2>Portfolio</h2>
 
-  <!-- CONTACT -->
-  <section style="padding:40px; background:#f5f5f5;">
-    <h2>Contact</h2>
-    <p>
-      Email, socials, etc.
-    </p>
-  </section>
+      <!-- Your PNG images (pages from PDF) -->
+      <img src="./page1.png" alt="Portfolio Page 1" class="portfolio-page" />
+      <img src="./page2.png" alt="Portfolio Page 2" class="portfolio-page" />
+      <img src="./page3.png" alt="Portfolio Page 3" class="portfolio-page" />
+      <!-- Add more images as needed -->
+    </section>
 
-</body>
+    <!-- CONTACT SECTION -->
+    <section>
+      <h2>Contact</h2>
+      <p>Email: your.email@example.com</p>
+      <p>LinkedIn / GitHub / Socials: Add your links here</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy; 2026 Your Name. All rights reserved.</p>
+    </footer>
+
+  </body>
 </html>
