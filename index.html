@@ -14,37 +14,43 @@
     html { scroll-behavior: smooth; }
 
     /* HEADER */
-    header { background:#111; color:white; padding:60px 20px 30px 20px; text-align:center; }
-    header h1 { margin:0 0 10px 0; font-size:3em; }
-    header p { margin:0; font-size:1.2em; }
+    header { 
+      background:#111; 
+      color:white; 
+      padding:100px 20px 50px 20px; 
+      text-align:center; 
+    }
+    header h1 { margin:0 0 20px 0; font-size:3em; }
+    header p { margin:0 0 30px 0; font-size:1.2em; }
 
-    /* NAVIGATION MENU */
-    nav { margin-top:20px; }
-    nav a, nav button {
+    /* NAVIGATION BUTTONS */
+    nav {
+      margin-top:20px;
+    }
+    nav button {
       color:white;
       margin:0 15px;
       text-decoration:none;
       font-weight:700;
-      background:none;
-      border:none;
+      background:#222;
+      border:2px solid #fff;
+      border-radius:5px;
+      padding:10px 20px;
       cursor:pointer;
       font-size:1em;
-      transition: color 0.3s;
+      transition: all 0.3s;
     }
-    nav a:hover, nav button:hover { color:#ff6600; }
+    nav button:hover { background:#ff6600; border-color:#ff6600; }
 
     /* SECTIONS */
     section {
       padding:70px 20px;
       max-width:1000px;
       margin:0 auto;
-      display:block;
+      display:none; /* hidden initially */
     }
     section:nth-child(even) { background:#f5f5f5; }
     section h2 { text-align:center; margin-bottom:40px; font-size:2em; }
-
-    /* HIDDEN SECTIONS INITIALLY */
-    .hidden-section { display:none; }
 
     /* PORTFOLIO IMAGES */
     img.portfolio-page {
@@ -67,41 +73,39 @@
     <h1>JustMaybeMi</h1>
     <p>Creative Portfolio</p>
     <nav>
-      <!-- Portfolio always visible -->
-      <a href="#portfolio">Portfolio</a>
-      <!-- Buttons for hidden sections -->
       <button onclick="showSection('about')">About Me</button>
       <button onclick="showSection('skills')">Skills</button>
-      <button onclick="showSection('pricing')">Pricing</button>
+      <button onclick="showSection('portfolio')">Portfolio</button>
+      <button onclick="showSection('pricing')">Pricing Guide</button>
       <button onclick="showSection('contact')">Contact</button>
     </nav>
   </header>
 
-  <!-- PORTFOLIO SECTION -->
+  <!-- SECTIONS (ALL HIDDEN INITIALLY) -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Write a short introduction here. Who you are, what you do, and why your work is special.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <p>List your key skills here: Web Development, Design, UX/UI, Writing, etc.</p>
+  </section>
+
   <section id="portfolio">
     <h2>Portfolio</h2>
     <img src="./1.png" alt="Portfolio Page 1" class="portfolio-page" />
     <img src="./2.png" alt="Portfolio Page 2" class="portfolio-page" />
     <img src="./3.png" alt="Portfolio Page 3" class="portfolio-page" />
+    <!-- Add more images as needed -->
   </section>
 
-  <!-- HIDDEN SECTIONS -->
-  <section id="about" class="hidden-section">
-    <h2>About Me</h2>
-    <p>Write a short introduction here. Who you are, what you do, and why your work is special.</p>
-  </section>
-
-  <section id="skills" class="hidden-section">
-    <h2>Skills</h2>
-    <p>List your key skills here: Web Development, Design, UX/UI, Writing, etc.</p>
-  </section>
-
-  <section id="pricing" class="hidden-section">
+  <section id="pricing">
     <h2>Pricing Guide</h2>
     <p>List your pricing, services, or packages here.</p>
   </section>
 
-  <section id="contact" class="hidden-section">
+  <section id="contact">
     <h2>Contact</h2>
     <p>Email: your.email@example.com</p>
     <p>LinkedIn / GitHub / Socials: Add your links here</p>
@@ -115,11 +119,11 @@
   <!-- SCRIPT TO SHOW SECTIONS -->
   <script>
     function showSection(id) {
-      // hide all sections first
-      const sections = document.querySelectorAll('.hidden-section');
+      // Hide all sections first
+      const sections = document.querySelectorAll('section');
       sections.forEach(s => s.style.display = 'none');
 
-      // show clicked section
+      // Show only clicked section
       const section = document.getElementById(id);
       if(section) {
         section.style.display = 'block';
