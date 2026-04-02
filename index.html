@@ -4,544 +4,159 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JustMaybeMi | Portfolio</title>
-  <meta
-    name="description"
-    content="Portfolio of JustMaybeMi featuring creative work, writing, and visual projects."
-  />
-  <meta name="author" content="JustMaybeMi" />
+
   <link rel="icon" type="image/png" href="./logo.png" />
 
-  <!-- Better brand fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Cormorant+Garamond:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <!-- Better fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --bg: #0d0d0f;
-      --panel: rgba(255, 255, 255, 0.08);
-      --panel-border: rgba(255, 255, 255, 0.16);
-      --text: #f5f1eb;
-      --muted: rgba(245, 241, 235, 0.75);
-      --accent: #ff7a18;
-      --accent-soft: #ffb067;
-      --dark-text: #1c1c1c;
-      --light-bg: #f7f4ef;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--light-bg);
-      color: var(--dark-text);
+      margin:0;
+      font-family:'Manrope', sans-serif;
+      color:#222;
     }
 
-    /* HERO */
+    html { scroll-behavior: smooth; }
+
+    /* HEADER */
     header {
-      position: relative;
-      overflow: hidden;
-      min-height: 88vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 100px 20px 70px;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(255, 122, 24, 0.22), transparent 30%),
-        radial-gradient(circle at 80% 30%, rgba(255, 176, 103, 0.16), transparent 28%),
-        radial-gradient(circle at 50% 80%, rgba(255, 255, 255, 0.08), transparent 30%),
-        linear-gradient(135deg, #0c0c0f 0%, #15151b 45%, #0e0e12 100%);
-      color: var(--text);
+      position:relative;
+      text-align:center;
+      padding:120px 20px 70px;
+      background:url('./header.jpg') center/cover no-repeat;
+      color:white;
     }
 
-    .hero-glow,
-    .hero-glow-2 {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(30px);
-      opacity: 0.6;
-      pointer-events: none;
-      animation: floatGlow 10s ease-in-out infinite;
+    /* Overlay */
+    header::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.5);
     }
 
-    .hero-glow {
-      width: 260px;
-      height: 260px;
-      top: 10%;
-      left: 10%;
-      background: rgba(255, 122, 24, 0.25);
-    }
-
-    .hero-glow-2 {
-      width: 320px;
-      height: 320px;
-      bottom: 8%;
-      right: 8%;
-      background: rgba(255, 255, 255, 0.08);
-      animation-delay: 2s;
-    }
-
-    @keyframes floatGlow {
-      0%, 100% {
-        transform: translateY(0px) translateX(0px) scale(1);
-      }
-      50% {
-        transform: translateY(-18px) translateX(12px) scale(1.06);
-      }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 850px;
+    header h1,
+    header nav {
+      position:relative;
+      z-index:1;
     }
 
     header h1 {
-      margin: 0 0 18px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 7vw, 6rem);
-      font-weight: 700;
-      letter-spacing: 1px;
-      line-height: 0.95;
+      font-family:'Playfair Display', serif;
+      font-size:3.5em;
+      margin-bottom:25px;
+      letter-spacing:1px;
     }
 
-    header p {
-      margin: 0 auto 32px;
-      max-width: 560px;
-      font-size: 1.08rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    /* NAV */
+    /* NAV (SUBHEADING STYLE) */
     nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 20px;
+      margin-top:10px;
     }
 
     nav button {
-      appearance: none;
-      border: 1px solid var(--panel-border);
-      background: var(--panel);
-      color: var(--text);
-      padding: 12px 22px;
-      border-radius: 999px;
-      cursor: pointer;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.98rem;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-      backdrop-filter: blur(10px);
-      transition: transform 0.28s ease, background 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+      background:none;
+      border:none;
+      color:white;
+      font-size:1em;
+      margin:0 18px;
+      cursor:pointer;
+      font-weight:600;
+      letter-spacing:1px;
+      opacity:0.8;
+      transition:0.3s;
     }
 
-    nav button:hover,
-    nav button.active {
-      transform: translateY(-2px);
-      background: rgba(255, 122, 24, 0.18);
-      border-color: rgba(255, 176, 103, 0.6);
-      box-shadow: 0 12px 32px rgba(255, 122, 24, 0.18);
+    nav button:hover {
+      opacity:1;
+      text-decoration:underline;
     }
 
-    /* MAIN CONTENT */
-    main {
-      padding: 60px 20px 90px;
-    }
-
+    /* SECTIONS */
     section {
-      max-width: 1150px;
-      margin: 0 auto;
-      display: none;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.45s ease, transform 0.45s ease;
-    }
-
-    section.show {
-      display: block;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .section-card {
-      background: #ffffff;
-      border-radius: 26px;
-      padding: 42px 26px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+      padding:70px 20px;
+      max-width:1000px;
+      margin:0 auto;
+      display:none;
     }
 
     section h2 {
-      margin: 0 0 12px;
-      text-align: center;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 4vw, 3.4rem);
-      line-height: 1;
-      color: #151515;
+      text-align:center;
+      font-family:'Playfair Display', serif;
+      font-size:2.2em;
+      margin-bottom:40px;
     }
 
-    .section-intro {
-      text-align: center;
-      max-width: 650px;
-      margin: 0 auto 34px;
-      color: #666;
-      line-height: 1.7;
-      font-size: 1rem;
+    /* PORTFOLIO */
+    img.portfolio-page {
+      width:80%;
+      margin:30px auto;
+      display:block;
+      border-radius:12px;
+      box-shadow:0 8px 25px rgba(0,0,0,0.2);
+      transition:0.3s;
     }
 
-    /* PORTFOLIO GRID */
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 22px;
-    }
-
-    .portfolio-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 20px;
-      cursor: pointer;
-      background: #eee;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-    }
-
-    .portfolio-item:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.16);
-    }
-
-    .portfolio-item img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      transition: transform 0.45s ease;
-    }
-
-    .portfolio-item:hover img {
-      transform: scale(1.04);
-    }
-
-    .portfolio-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.12), transparent);
-      display: flex;
-      align-items: end;
-      padding: 18px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .portfolio-item:hover .portfolio-overlay {
-      opacity: 1;
-    }
-
-    .portfolio-overlay span {
-      color: white;
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-    }
-
-    /* PRICING + CONTACT */
-    .info-block {
-      max-width: 720px;
-      margin: 0 auto;
-      background: #faf8f5;
-      border: 1px solid #ece6de;
-      border-radius: 20px;
-      padding: 26px;
-      line-height: 1.75;
-      color: #444;
-    }
-
-    .info-block strong {
-      color: #111;
-    }
-
-    .contact-links a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .contact-links a:hover {
-      text-decoration: underline;
+    img.portfolio-page:hover {
+      transform:scale(1.02);
     }
 
     /* FOOTER */
     footer {
-      text-align: center;
-      padding: 35px 20px;
-      background: #101014;
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 0.95rem;
-    }
-
-    /* LIGHTBOX */
-    .lightbox {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.86);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 30px;
-      z-index: 999;
-    }
-
-    .lightbox.show {
-      display: flex;
-    }
-
-    .lightbox-content {
-      position: relative;
-      max-width: 900px;
-      width: 100%;
-      animation: popIn 0.25s ease;
-    }
-
-    .lightbox img {
-      width: 100%;
-      max-height: 85vh;
-      object-fit: contain;
-      border-radius: 18px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
-      background: #111;
-    }
-
-    .close-lightbox {
-      position: absolute;
-      top: -12px;
-      right: -12px;
-      width: 42px;
-      height: 42px;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      background: white;
-      color: #111;
-      font-size: 1.2rem;
-      font-weight: 700;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-    }
-
-    @keyframes popIn {
-      from {
-        opacity: 0;
-        transform: scale(0.96);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    @media (max-width: 700px) {
-      header {
-        min-height: 80vh;
-        padding: 90px 18px 55px;
-      }
-
-      .section-card {
-        padding: 34px 18px;
-      }
-
-      nav {
-        gap: 10px;
-      }
-
-      nav button {
-        padding: 11px 18px;
-        font-size: 0.95rem;
-      }
+      text-align:center;
+      padding:40px;
+      background:#111;
+      color:white;
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <div class="hero-glow"></div>
-    <div class="hero-glow-2"></div>
 
-    <div class="hero-content">
-      <h1>JustMaybeMi</h1>
-      <p>
-        A curated creative portfolio shaped by visual storytelling, atmosphere,
-        and style.
-      </p>
+<header>
+  <h1>JustMaybeMi</h1>
 
-      <nav>
-        <button class="nav-btn" onclick="showSection('portfolio', this)">Portfolio</button>
-        <button class="nav-btn" onclick="showSection('pricing', this)">Pricing Guide</button>
-        <button class="nav-btn" onclick="showSection('contact', this)">Contact</button>
-      </nav>
-    </div>
-  </header>
+  <nav>
+    <button onclick="showSection('portfolio')">Portfolio</button>
+    <button onclick="showSection('pricing')">Pricing</button>
+    <button onclick="showSection('contact')">Contact</button>
+  </nav>
+</header>
 
-  <main>
-    <section id="portfolio">
-      <div class="section-card">
-        <h2>Portfolio</h2>
-        <p class="section-intro">
-          Click any image to view it larger. This layout makes the work feel more
-          like a real gallery instead of a long image stack.
-        </p>
+<section id="portfolio">
+  <h2>Portfolio</h2>
+  <img src="./1.png" class="portfolio-page" />
+  <img src="./2.png" class="portfolio-page" />
+  <img src="./3.png" class="portfolio-page" />
+  <img src="./4.png" class="portfolio-page" />
+</section>
 
-        <div class="portfolio-grid">
-          <div class="portfolio-item" onclick="openLightbox('./1.png')">
-            <img src="./1.png" alt="Portfolio Page 1" />
-            <div class="portfolio-overlay"><span>View Project</span></div>
-          </div>
-          <div class="portfolio-item" onclick="openLightbox('./2.png')">
-            <img src="./2.png" alt="Portfolio Page 2" />
-            <div class="portfolio-overlay"><span>View Project</span></div>
-          </div>
-          <div class="portfolio-item" onclick="openLightbox('./3.png')">
-            <img src="./3.png" alt="Portfolio Page 3" />
-            <div class="portfolio-overlay"><span>View Project</span></div>
-          </div>
-          <div class="portfolio-item" onclick="openLightbox('./4.png')">
-            <img src="./4.png" alt="Portfolio Page 4" />
-            <div class="portfolio-overlay"><span>View Project</span></div>
-          </div>
-          <div class="portfolio-item" onclick="openLightbox('./5.png')">
-            <img src="./5.png" alt="Portfolio Page 5" />
-            <div class="portfolio-overlay"><span>View Project</span></div>
-          </div>
-          <div class="portfolio-item" onclick="openLightbox('./6.png')">
-            <img src="./6.png" alt="Portfolio Page 6" />
-            <div class="portfolio-overlay"><span>View Project</span></div>
-          </div>
-          <div class="portfolio-item" onclick="openLightbox('./7.png')">
-            <img src="./7.png" alt="Portfolio Page 7" />
-            <div class="portfolio-overlay"><span>View Project</span></div>
-          </div>
-          <div class="portfolio-item" onclick="openLightbox('./8.png')">
-            <img src="./8.png" alt="Portfolio Page 8" />
-            <div class="portfolio-overlay"><span>View Project</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
+<section id="pricing">
+  <h2>Pricing</h2>
+  <p style="text-align:center;">Available upon request.</p>
+</section>
 
-    <section id="pricing">
-      <div class="section-card">
-        <h2>Pricing Guide</h2>
-        <p class="section-intro">
-          Keep this simple, polished, and easy for potential clients to scan.
-        </p>
+<section id="contact">
+  <h2>Contact</h2>
+  <p style="text-align:center;">your.email@example.com</p>
+</section>
 
-        <div class="info-block">
-          <p><strong>Starter Package</strong> — Add your starting rate and what’s included.</p>
-          <p><strong>Standard Package</strong> — Add details for your most common booking.</p>
-          <p><strong>Custom Work</strong> — Let clients know custom quotes are available.</p>
-        </div>
-      </div>
-    </section>
+<footer>
+  <p>&copy; 2026 JustMaybeMi</p>
+</footer>
 
-    <section id="contact">
-      <div class="section-card">
-        <h2>Contact</h2>
-        <p class="section-intro">
-          Keep this section direct, elegant, and easy to act on.
-        </p>
+<script>
+  function showSection(id) {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(s => s.style.display = 'none');
 
-        <div class="info-block contact-links">
-          <p><strong>Email:</strong> <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-          <p><strong>Instagram:</strong> <a href="#">@justmaybemi</a></p>
-          <p><strong>LinkedIn / Other:</strong> Add your links here</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2026 JustMaybeMi. All rights reserved.</p>
-  </footer>
-
-  <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-    <div class="lightbox-content">
-      <button class="close-lightbox" onclick="closeLightbox(event)">×</button>
-      <img id="lightboxImage" src="" alt="Expanded portfolio image" />
-    </div>
-  </div>
-
-  <script>
-    function showSection(id, clickedButton) {
-      const sections = document.querySelectorAll('main section');
-      const buttons = document.querySelectorAll('.nav-btn');
-
-      sections.forEach(section => {
-        section.classList.remove('visible');
-        section.classList.remove('show');
-      });
-
-      buttons.forEach(button => {
-        button.classList.remove('active');
-      });
-
-      const selectedSection = document.getElementById(id);
-      if (selectedSection) {
-        selectedSection.classList.add('show');
-
-        requestAnimationFrame(() => {
-          selectedSection.classList.add('visible');
-        });
-
-        if (clickedButton) {
-          clickedButton.classList.add('active');
-        }
-
-        setTimeout(() => {
-          selectedSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 60);
-      }
+    const section = document.getElementById(id);
+    if(section) {
+      section.style.display = 'block';
+      section.scrollIntoView({ behavior: 'smooth' });
     }
+  }
+</script>
 
-    function openLightbox(imageSrc) {
-      const lightbox = document.getElementById('lightbox');
-      const lightboxImage = document.getElementById('lightboxImage');
-      lightboxImage.src = imageSrc;
-      lightbox.classList.add('show');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox(event) {
-      if (
-        event.target.id === 'lightbox' ||
-        event.target.classList.contains('close-lightbox')
-      ) {
-        document.getElementById('lightbox').classList.remove('show');
-        document.body.style.overflow = '';
-      }
-    }
-
-    document.addEventListener('keydown', function (event) {
-      if (event.key === 'Escape') {
-        document.getElementById('lightbox').classList.remove('show');
-        document.body.style.overflow = '';
-      }
-    });
-  </script>
 </body>
 </html>
