@@ -154,13 +154,14 @@ section {
     }
 
     .portfolio-page {
-      border-radius: 16px;
-      overflow: hidden;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.18);
-    }
-
+  width: 80%;           /* smaller, centered */
+  display: block;
+  margin: 30px auto;    /* spacing between images */
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: default;      /* not interactive */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18); /* subtle depth */
+}
     .portfolio-page:hover {
       transform: translateY(-5px) scale(1.03);
       box-shadow: 0 18px 36px rgba(0,0,0,0.22);
