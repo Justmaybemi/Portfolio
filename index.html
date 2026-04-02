@@ -9,13 +9,17 @@
   <meta name="author" content="JustMaybeMi" />
 
   <link rel="icon" type="image/png" href="./logo.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- ✨ ICONS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    body { font-family: 'Roboto', sans-serif; margin:0; color:#222; }
+    body { font-family: 'Manrope', sans-serif; margin:0; color:#222; }
     html { scroll-behavior: smooth; }
 
-    /* HEADER WITH IMAGE */
     header {
       position: relative;
       color:white;
@@ -24,7 +28,6 @@
       background: url('./header.png') center/cover no-repeat;
     }
 
-    /* DARK OVERLAY FOR READABILITY */
     header::before {
       content:"";
       position:absolute;
@@ -38,34 +41,27 @@
     }
 
     header h1 { 
-      margin:0 0 15px 0; 
-      font-size:3em; 
-      letter-spacing:1px;
+      font-family: 'Playfair Display', serif;
+      margin:0 0 15px;
+      font-size:3.2em;
     }
 
-    /* ✨ CLEANER SUBHEADING */
     header p { 
-      margin:0 0 30px 0; 
-      font-size:1.15em; 
+      margin:0 0 30px;
+      font-size:1.1em;
       opacity:0.9;
-    }
-
-    /* NAVIGATION BUTTONS */
-    nav {
-      margin-top:20px;
     }
 
     nav button {
       color:white;
       margin:0 15px;
-      font-weight:700;
+      font-weight:600;
       background:#222;
       border:2px solid #fff;
       border-radius:5px;
       padding:10px 20px;
       cursor:pointer;
-      font-size:1em;
-      transition: all 0.3s;
+      transition:0.3s;
     }
 
     nav button:hover { 
@@ -73,7 +69,6 @@
       border-color:#ff6600; 
     }
 
-    /* SECTIONS */
     section {
       padding:70px 20px;
       max-width:1000px;
@@ -85,36 +80,47 @@
 
     section h2 { 
       text-align:center; 
-      margin-bottom:25px; 
-      font-size:2em; 
+      margin-bottom:20px;
+      font-family:'Playfair Display', serif;
     }
 
-    /* ✨ BETTER BODY TEXT */
     section p {
       text-align:center;
       max-width:600px;
       margin:0 auto 20px;
-      line-height:1.6;
     }
 
-    /* PORTFOLIO IMAGES */
     img.portfolio-page {
       display:block;
       width:80%;
       margin:30px auto;
       border-radius:10px;
       box-shadow:0 5px 20px rgba(0,0,0,0.2);
-      transition: transform 0.3s;
     }
 
-    img.portfolio-page:hover {
-      transform: scale(1.02);
+    /* ✨ ICON NAV */
+    .quick-links {
+      display:flex;
+      justify-content:center;
+      gap:30px;
+      margin-top:50px;
     }
 
-    /* FOOTER */
+    .quick-links i {
+      font-size:1.8em;
+      color:#111;
+      cursor:pointer;
+      transition:0.3s;
+    }
+
+    .quick-links i:hover {
+      color:#ff6600;
+      transform:translateY(-3px);
+    }
+
     footer { 
       text-align:center; 
-      padding:40px 20px; 
+      padding:40px; 
       background:#111; 
       color:white; 
     }
@@ -123,67 +129,68 @@
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <h1>JustMaybeMi</h1>
+<header>
+  <h1>JustMaybeMi</h1>
+  <p>Visual work, creative direction, and curated projects.</p>
 
-    <!-- ✨ REFINED TEXT -->
-    <p>Visual work, creative direction, and curated projects.</p>
+  <nav>
+    <button onclick="showSection('portfolio')">Portfolio</button>
+    <button onclick="showSection('pricing')">Pricing</button>
+    <button onclick="showSection('contact')">Contact</button>
+  </nav>
+</header>
 
-    <nav>
-      <button onclick="showSection('portfolio')">Portfolio</button>
-      <button onclick="showSection('pricing')">Pricing</button>
-      <button onclick="showSection('contact')">Contact</button>
-    </nav>
-  </header>
+<section id="portfolio">
+  <h2>Portfolio</h2>
+  <p>A selection of recent work exploring style and visual storytelling.</p>
 
-  <!-- PORTFOLIO -->
-  <section id="portfolio">
-    <h2>Portfolio</h2>
+  <img src="./1.png" class="portfolio-page" />
+  <img src="./2.png" class="portfolio-page" />
+  <img src="./3.png" class="portfolio-page" />
+  <img src="./4.png" class="portfolio-page" />
+  <img src="./5.png" class="portfolio-page" />
+  <img src="./6.png" class="portfolio-page" />
+  <img src="./7.png" class="portfolio-page" />
+  <img src="./8.png" class="portfolio-page" />
 
-    <p>A selection of recent work exploring style, visuals, and creative expression.</p>
+  <!-- ✨ ICON LINKS -->
+  <div class="quick-links">
+    <i class="fa-solid fa-tag" onclick="showSection('pricing')" title="Pricing"></i>
+    <i class="fa-solid fa-envelope" onclick="showSection('contact')" title="Contact"></i>
+  </div>
+</section>
 
-    <img src="./1.png" alt="Portfolio Page 1" class="portfolio-page" />
-    <img src="./2.png" alt="Portfolio Page 2" class="portfolio-page" />
-    <img src="./3.png" alt="Portfolio Page 3" class="portfolio-page" />
-    <img src="./4.png" alt="Portfolio Page 4" class="portfolio-page" />
-    <img src="./5.png" alt="Portfolio Page 5" class="portfolio-page" />
-    <img src="./6.png" alt="Portfolio Page 6" class="portfolio-page" />
-    <img src="./7.png" alt="Portfolio Page 7" class="portfolio-page" />
-    <img src="./8.png" alt="Portfolio Page 8" class="portfolio-page" />
-  </section>
- 
-  <!-- PRICING -->
-  <section id="pricing">
-    <h2>Pricing</h2>
+<section id="pricing">
+  <h2>Pricing</h2>
+  <p>Pricing is tailored to each project depending on scope and requirements.</p>
+  <p>For inquiries or custom packages, feel free to reach out.</p>
+</section>
 
-    <p>Pricing is tailored to each project depending on scope, style, and requirements.</p>
-    <p>For inquiries or custom packages, feel free to reach out.</p>
-  </section>
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: your.email@example.com</p>
+  <p>Instagram / LinkedIn — add your links here</p>
+</section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact</h2>
+<footer>
+  <p>&copy; 2026 JustMaybeMi. All rights reserved.</p>
+</footer>
 
-    <p>Email: your.email@example.com</p>
-    <p>Instagram / LinkedIn — add your links here</p>
-  </section>
+<script>
+  function showSection(id) {
+    const sections = document.querySelectorAll('section');
+    sections.forEach(s => s.style.display = 'none');
 
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; 2026 JustMaybeMi. All rights reserved.</p>
-  </footer>
+    const section = document.getElementById(id);
+    if(section) {
+      section.style.display = 'block';
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+</script>
 
-  <!-- SCRIPT -->
-  <script>
-    function showSection(id) {
-      const sections = document.querySelectorAll('section');
-      sections.forEach(s => s.style.display = 'none');
-
-      const section = document.getElementById(id);
-      if(section) {
-        section.style.display = 'block';
-        section.scrollIntoView({ behavior: 'smooth' });
+</body>
+</html>
       }
     }
   </script>
