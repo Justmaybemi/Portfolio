@@ -15,33 +15,27 @@
 
     html { scroll-behavior: smooth; }
 
-    body {
-      margin: 0;
-      font-family: 'Manrope', sans-serif;
-      color: #fff;
-      background: linear-gradient(-45deg, #7B024D, #ff8ac6, #f4efe9, #ffffff);
-      background-size: 400% 400%;
-      animation: gradientShift 12s ease infinite;
-      min-height: 100vh;
-    }
-
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
+  body {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  color: #fff;
+  min-height: 100vh;
+  background: #111; /* fallback */
+  transition: background 0.6s ease;
+}
     header {
-      position: relative;
-      text-align: center;
-      padding: 120px 20px 100px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      backdrop-filter: blur(4px);
-    }
+  position: relative;
+  text-align: center;
+  padding: 120px 20px 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #7B024D, #ff8ac6, #f4efe9, #ffffff);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
+}
 
     .logo {
       width: 70px;
@@ -125,12 +119,17 @@
     }
 
     section {
-      display: none;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 100px 20px;
-      text-align: center;
-    }
+section {
+  display: none;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 100px 20px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(30,30,30,0.95), rgba(50,50,50,0.95)); /* soft professional gradient */
+  border-radius: 12px;
+  box-shadow: 0 10px 36px rgba(0,0,0,0.25);
+  transition: background 0.6s ease;
+}
 
     section h2 {
       font-family: 'Playfair Display', serif;
@@ -263,6 +262,25 @@
     document.querySelectorAll('section').forEach(s => s.style.display='none');
     document.getElementById('home').scrollIntoView({behavior:'smooth'});
   }
+  
+  function showSection(id) {
+  document.querySelectorAll('section').forEach(s => s.style.display='none');
+  const sel = document.getElementById(id);
+  if(sel){
+    sel.style.display='block';
+    sel.scrollIntoView({behavior:'smooth'});
+    // header becomes muted when viewing a section
+    document.querySelector('header').style.background = 'linear-gradient(180deg, rgba(20,20,20,0.85), rgba(40,40,40,0.85))';
+  }
+}
+
+  function goHome(e){
+  e.preventDefault();
+  document.querySelectorAll('section').forEach(s => s.style.display='none');
+  document.getElementById('home').scrollIntoView({behavior:'smooth'});
+  // restore animated gradient
+  document.querySelector('header').style.background = 'linear-gradient(-45deg, #7B024D, #ff8ac6, #f4efe9, #ffffff)';
+}
 </script>
 
 </body>
