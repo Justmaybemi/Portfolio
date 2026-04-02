@@ -4,64 +4,113 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>JustMaybeMi | Portfolio</title>
-  <meta name="description" content="Portfolio of JustMaybeMi featuring creative work, writing, and visual projects." />
+  <meta
+    name="description"
+    content="Portfolio of JustMaybeMi featuring creative work, writing, and visual projects."
+  />
   <meta name="author" content="JustMaybeMi" />
+  <meta name="robots" content="index, follow" />
   <link rel="icon" type="image/png" href="./logo.png" />
- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Brand fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
-    body { font-family: 'Roboto', sans-serif; margin:0; color:#222; }
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: #222;
+      background: #fff;
+      font-family: 'Inter', sans-serif;
+    }
 
     /* HEADER */
     header {
-      background:#111;
-      color:white;
-      padding:100px 20px 50px 20px;
-      text-align:center;
+      background: #111;
+      color: white;
+      padding: 100px 20px 50px;
+      text-align: center;
     }
-    header h1 { margin:0 0 20px 0; font-size:3em; }
-    header p { margin:0 0 30px 0; font-size:1.2em; }
+
+    header h1 {
+      margin: 0 0 20px;
+      font-size: 3.2em;
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin: 0 0 30px;
+      font-size: 1.1em;
+      font-weight: 500;
+      letter-spacing: 0.4px;
+    }
 
     /* NAVIGATION BUTTONS */
     nav {
-      margin-top:20px;
+      margin-top: 20px;
     }
+
     nav button {
-      color:white;
-      margin:0 15px;
-      text-decoration:none;
-      font-weight:700;
-      background:#222;
-      border:2px solid #fff;
-      border-radius:5px;
-      padding:10px 20px;
-      cursor:pointer;
-      font-size:1em;
-      transition: all 0.3s;
+      color: white;
+      margin: 0 12px;
+      font-weight: 600;
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.65);
+      border-radius: 6px;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 1em;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
     }
-    nav button:hover { background:ff6600; border-color:#ff6600; }
+
+    nav button:hover {
+      background: #ff6600;
+      border-color: #ff6600;
+      transform: translateY(-1px);
+    }
 
     /* SECTIONS */
     section {
-      padding:70px 20px;
-      max-width:1000px;
-      margin:0 auto;
-      display:none; /* hidden initially */
+      padding: 70px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      display: none;
     }
-    section:nth-child(even) { background:#f5f5f5; }
-    section h2 { text-align:center; margin-bottom:40px; font-size:2em; }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 2.2em;
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 0.5px;
+    }
 
     /* PORTFOLIO IMAGES */
     img.portfolio-page {
-      display:block;
-      width:80%;
-      margin:30px auto;
-      border-radius:10px;
-      box-shadow:0 5px 20px rgba(0,0,0,0.2);
+      display: block;
+      width: 80%;
+      margin: 30px auto;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
     }
 
     /* FOOTER */
-    footer { text-align:center; padding:40px 20px; background:#111; color:white; }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: #111;
+      color: white;
+      font-size: 0.95em;
+    }
   </style>
 </head>
 
@@ -72,13 +121,13 @@
     <h1>JustMaybeMi</h1>
     <p>Creative Portfolio</p>
     <nav>
-      <button onclick="showSection('portfolio')">Portfolio</button>
+      <button onclick="unlockPortfolio()">Portfolio</button>
       <button onclick="showSection('pricing')">Pricing Guide</button>
       <button onclick="showSection('contact')">Contact</button>
     </nav>
   </header>
 
-  <!-- SECTIONS (ALL HIDDEN INITIALLY) -->
+  <!-- SECTIONS -->
 
   <section id="portfolio">
     <h2>Portfolio</h2>
@@ -90,9 +139,8 @@
     <img src="./6.png" alt="Portfolio Page 6" class="portfolio-page" />
     <img src="./7.png" alt="Portfolio Page 7" class="portfolio-page" />
     <img src="./8.png" alt="Portfolio Page 8" class="portfolio-page" />
-    <!-- Add more images as needed -->
   </section>
- 
+
   <section id="pricing">
     <h2>Pricing Guide</h2>
     <p>List your pricing, services, or packages here.</p>
@@ -109,18 +157,30 @@
     <p>&copy; 2026 JustMaybeMi. All rights reserved.</p>
   </footer>
 
-  <!-- SCRIPT TO SHOW SECTIONS -->
+  <!-- SCRIPT -->
   <script>
-    function showSection(id) {
-      // Hide all sections first
-      const sections = document.querySelectorAll('section');
-      sections.forEach(s => s.style.display = 'none');
+    const portfolioPassword = "enter123"; // change this to your own password
 
-      // Show only clicked section
-      const section = document.getElementById(id);
-      if(section) {
-        section.style.display = 'block';
-        section.scrollIntoView({ behavior: 'smooth' });
+    function showSection(id) {
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        section.style.display = 'none';
+      });
+
+      const selectedSection = document.getElementById(id);
+      if (selectedSection) {
+        selectedSection.style.display = 'block';
+        selectedSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function unlockPortfolio() {
+      const input = prompt("Enter access code to view portfolio:");
+
+      if (input === portfolioPassword) {
+        showSection('portfolio');
+      } else if (input !== null) {
+        alert("Incorrect code.");
       }
     }
   </script>
