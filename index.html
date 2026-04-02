@@ -7,76 +7,91 @@
   <title>JustMaybeMi | Portfolio</title>
   <meta name="description" content="Visual work, creative direction, and curated projects." />
 
-  <!-- ✅ FIXED favicon -->
-  <link rel="icon" type="image/png" href="./logo.png">
+  <link rel="icon" type="image/png" href="Logo.png">
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
-  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
       font-family: 'Manrope', sans-serif;
-      background: linear-gradient(to bottom, #f5f2ee, #7B024D);
       color: #111;
+      background: linear-gradient(to bottom, #ffffff 0%, #f4efe9 18%, #7B024D 100%);
+      min-height: 100vh;
     }
 
-    /* 🔥 HEADER */
     header {
       position: relative;
       text-align: center;
       color: white;
-      padding: 120px 20px 80px;
+      padding: 115px 20px 80px;
       overflow: hidden;
+      background: transparent;
     }
 
-    /* Background layer using logo */
     header::before {
       content: "";
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.6)),
-        url("./logo.png") center/40% no-repeat;
-      opacity: 0.25;
+        linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.58)),
+        url("Logo.png") center/32% no-repeat;
+      opacity: 0.22;
       z-index: 0;
     }
 
     .logo {
-      width: 80px;
+      width: 58px;
+      height: 58px;
+      object-fit: cover;
       border-radius: 50%;
-      margin-bottom: 20px;
+      margin-bottom: 14px;
       position: relative;
       z-index: 1;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.12);
+      padding: 4px;
+      backdrop-filter: blur(4px);
     }
 
-    header h1 {
+    .site-title {
+      display: inline-block;
+      margin: 0 0 12px;
       font-family: 'Playfair Display', serif;
       font-size: clamp(3rem, 7vw, 5rem);
-      margin: 0 0 12px;
+      line-height: 1;
+      color: white;
+      text-decoration: none;
       position: relative;
       z-index: 1;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .site-title:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
     }
 
     .hero-subtext {
       max-width: 600px;
       margin: 0 auto 40px;
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.85);
-      line-height: 1.6;
+      font-size: 1.08rem;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.65;
       position: relative;
       z-index: 1;
     }
 
-    /* 🔥 BUTTONS */
     .hero-nav {
       display: flex;
       flex-direction: column;
@@ -92,74 +107,80 @@
       border: none;
       border-radius: 999px;
       padding: 16px 44px;
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       font-weight: 700;
-      letter-spacing: 1.4px;
+      letter-spacing: 1.2px;
       cursor: pointer;
-      transition: 0.3s;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      transition: all 0.3s ease;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
     }
 
     .primary-link:hover {
-      transform: translateY(-2px) scale(1.03);
+      transform: translateY(-2px) scale(1.02);
       background: #ffefe2;
     }
 
     .secondary-links {
       display: flex;
       gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     .secondary-links button {
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
       color: white;
-      border: 1px solid rgba(255,255,255,0.6);
+      border: 1px solid rgba(255, 255, 255, 0.55);
       border-radius: 999px;
       padding: 10px 20px;
       cursor: pointer;
-      transition: 0.25s;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(6px);
     }
 
     .secondary-links button:hover {
-      background: rgba(255,255,255,0.2);
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateY(-1px);
     }
 
-    /* SECTIONS */
     section {
       display: none;
       max-width: 1000px;
-      margin: auto;
+      margin: 0 auto;
       padding: 80px 20px;
+      background: transparent;
     }
 
     section h2 {
       text-align: center;
       font-family: 'Playfair Display', serif;
       font-size: 2.4rem;
+      margin: 0 0 18px;
+      color: white;
     }
 
     section p {
       text-align: center;
-      max-width: 600px;
+      max-width: 620px;
       margin: 10px auto;
-      color: #444;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.7;
     }
 
-    /* PORTFOLIO IMAGES */
     .portfolio-page {
       width: 80%;
       display: block;
       margin: 30px auto;
       border-radius: 14px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.15);
-      transition: 0.25s;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
 
     .portfolio-page:hover {
       transform: translateY(-4px);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
     }
 
-    /* ICON LINKS */
     .quick-links {
       display: flex;
       justify-content: center;
@@ -169,84 +190,120 @@
 
     .quick-links i {
       font-size: 1.8rem;
+      color: white;
       cursor: pointer;
-      transition: 0.25s;
+      transition: all 0.25s ease;
     }
 
     .quick-links i:hover {
-      color: #ff6600;
+      color: #ffd4b8;
       transform: translateY(-3px);
     }
 
     footer {
-      background: #111;
+      background: transparent;
       color: white;
       text-align: center;
-      padding: 30px;
+      padding: 30px 20px 40px;
     }
 
     @media (max-width: 600px) {
-      .portfolio-page { width: 95%; }
-      .secondary-links { flex-direction: column; }
+      .portfolio-page {
+        width: 95%;
+      }
+
+      .secondary-links {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .logo {
+        width: 52px;
+        height: 52px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <!-- ✅ Logo -->
-  <img src="./logo.png" class="logo" alt="logo">
+  <header id="home">
+    <img src="Logo.png" class="logo" alt="JustMaybeMi logo">
 
-  <h1>JustMaybeMi</h1>
-  <p class="hero-subtext">
-    Visual work, creative direction, and curated projects.
-  </p>
+    <a href="#home" class="site-title" onclick="goHome(event)">JustMaybeMi</a>
 
-  <div class="hero-nav">
-    <button class="primary-link" onclick="showSection('portfolio')">Portfolio</button>
+    <p class="hero-subtext">
+      Visual work, creative direction, and curated projects.
+    </p>
 
-    <div class="secondary-links">
-      <button onclick="showSection('pricing')">Pricing</button>
-      <button onclick="showSection('contact')">Contact</button>
+    <div class="hero-nav">
+      <button class="primary-link" onclick="showSection('portfolio')">Portfolio</button>
+
+      <div class="secondary-links">
+        <button onclick="showSection('pricing')">Pricing</button>
+        <button onclick="showSection('contact')">Contact</button>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<section id="portfolio">
-  <h2>Portfolio</h2>
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <p>A selection of recent work exploring style, visuals, and creative expression.</p>
 
-  <img src="./1.png" class="portfolio-page">
-  <img src="./2.png" class="portfolio-page">
-  <img src="./3.png" class="portfolio-page">
+    <img src="./1.png" alt="Portfolio Page 1" class="portfolio-page">
+    <img src="./2.png" alt="Portfolio Page 2" class="portfolio-page">
+    <img src="./3.png" alt="Portfolio Page 3" class="portfolio-page">
+    <img src="./4.png" alt="Portfolio Page 4" class="portfolio-page">
+    <img src="./5.png" alt="Portfolio Page 5" class="portfolio-page">
+    <img src="./6.png" alt="Portfolio Page 6" class="portfolio-page">
+    <img src="./7.png" alt="Portfolio Page 7" class="portfolio-page">
+    <img src="./8.png" alt="Portfolio Page 8" class="portfolio-page">
 
-  <div class="quick-links">
-    <i class="fa-solid fa-tag" onclick="showSection('pricing')"></i>
-    <i class="fa-solid fa-envelope" onclick="showSection('contact')"></i>
-  </div>
-</section>
+    <div class="quick-links">
+      <i class="fa-solid fa-tag" onclick="showSection('pricing')" title="Pricing"></i>
+      <i class="fa-solid fa-envelope" onclick="showSection('contact')" title="Contact"></i>
+    </div>
+  </section>
 
-<section id="pricing">
-  <h2>Pricing</h2>
-  <p>Pricing is tailored to each project.</p>
-</section>
+  <section id="pricing">
+    <h2>Pricing</h2>
+    <p>Pricing is tailored to each project depending on scope, style, and requirements.</p>
+    <p>For inquiries or custom packages, feel free to reach out.</p>
+  </section>
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email: olaitanferimi@gmail.com</p>
-</section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: olaitanferimi@gmail.com</p>
+    <p>Instagram — @justmaybemi</p>
+  </section>
 
-<footer>
-  <p>© 2026 JustMaybeMi</p>
-</footer>
+  <footer>
+    <p>© 2026 JustMaybeMi</p>
+  </footer>
 
-<script>
-function showSection(id) {
-  document.querySelectorAll("section").forEach(s => s.style.display = "none");
-  document.getElementById(id).style.display = "block";
-  window.scrollTo({ top: document.getElementById(id).offsetTop, behavior: 'smooth' });
-}
-</script>
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(section => {
+        section.style.display = 'none';
+      });
+
+      const selectedSection = document.getElementById(id);
+      if (selectedSection) {
+        selectedSection.style.display = 'block';
+        selectedSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function goHome(event) {
+      event.preventDefault();
+
+      document.querySelectorAll('section').forEach(section => {
+        section.style.display = 'none';
+      });
+
+      document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
 
 </body>
 </html>
