@@ -157,33 +157,5 @@
     <p>&copy; 2026 JustMaybeMi. All rights reserved.</p>
   </footer>
 
-  <!-- SCRIPT -->
-  <script>
-    const portfolioPassword = "justmaybe"; 
-
-    function showSection(id) {
-      const sections = document.querySelectorAll('section');
-      sections.forEach(section => {
-        section.style.display = 'none';
-      });
-
-      const selectedSection = document.getElementById(id);
-      if (selectedSection) {
-        selectedSection.style.display = 'block';
-        selectedSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-
-    function unlockPortfolio() {
-      const input = prompt("Enter access code to view portfolio:");
-
-      if (input === portfolioPassword) {
-        showSection('portfolio');
-      } else if (input !== null) {
-        alert("Incorrect code.");
-      }
-    }
-  </script>
-
 </body>
 </html>
