@@ -20,12 +20,20 @@
     }
 
     body {
-      margin: 0;
-      font-family: 'Manrope', sans-serif;
-      color: #111;
-      background: linear-gradient(to bottom, #ffffff 0%, #f4efe9 5%, #7B024D 100%);
-      min-height: 100vh;
-    }
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  color: #111;
+  background: linear-gradient(-45deg, #ffffff, #f4efe9, #7B024D, #ff8ac6);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+  min-height: 100vh;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
     header {
       position: relative;
