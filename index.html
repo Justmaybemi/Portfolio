@@ -3,14 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JustMaybeMi | Portfolio</title>
-  <meta
-    name="description"
-    content="Explore the work of JustMaybeMi — a curated collection of visual projects, creative direction, and storytelling."
-  />
-  <meta name="author" content="JustMaybeMi" />
 
-  <imgsrc= "./logo.png" imgsrc ="image/png" imgsrc="./logo.png" />
+  <title>JustMaybeMi | Portfolio</title>
+  <meta name="description" content="Visual work, creative direction, and curated projects." />
+
+  <!-- ✅ FIXED favicon -->
+  <link rel="icon" type="image/png" href="./logo.png">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -19,178 +17,160 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       font-family: 'Manrope', sans-serif;
-      color: #111;
       background: linear-gradient(to bottom, #f5f2ee, #7B024D);
+      color: #111;
     }
 
-    /* HEADER */
+    /* 🔥 HEADER */
     header {
       position: relative;
       text-align: center;
       color: white;
-      padding: 110px 20px 70px;
-      background:
-        linear-gradient(rgba(1,1,1), rgba(0, 0, 0, 0.58)),
-        <img src="./logo.png" center/cover no-repeat;
+      padding: 120px 20px 80px;
       overflow: hidden;
     }
 
-    .logo {
-      width: 72px;
-      height: auto;
-      margin-bottom: 18px;
-      border-radius: 50%;
-      position: relative;
-      z-index: 1;
+    /* Background layer using logo */
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.6)),
+        url("./logo.png") center/40% no-repeat;
+      opacity: 0.25;
+      z-index: 0;
     }
 
-    header h1,
-    .hero-subtext,
-    .hero-nav {
+    .logo {
+      width: 80px;
+      border-radius: 50%;
+      margin-bottom: 20px;
       position: relative;
       z-index: 1;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     }
 
     header h1 {
-      margin: 0 0 14px;
       font-family: 'Playfair Display', serif;
       font-size: clamp(3rem, 7vw, 5rem);
-      letter-spacing: 1px;
-      line-height: 1;
+      margin: 0 0 12px;
+      position: relative;
+      z-index: 1;
     }
 
     .hero-subtext {
-      margin: 0 auto 38px;
-      max-width: 620px;
-      font-size: 1.08rem;
-      line-height: 1.7;
-      color: rgba(255, 255, 255, 0.9);
+      max-width: 600px;
+      margin: 0 auto 40px;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
     }
 
-    /* HERO NAV */
+    /* 🔥 BUTTONS */
     .hero-nav {
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 18px;
+      position: relative;
+      z-index: 1;
     }
 
-    .hero-nav button {
-      font-family: 'Manrope', sans-serif;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    /* MAIN / DOMINANT BUTTON */
-    .hero-nav .primary-link {
+    .primary-link {
       background: white;
       color: #111;
       border: none;
       border-radius: 999px;
-      padding: 16px 42px;
+      padding: 16px 44px;
       font-size: 1.15rem;
       font-weight: 700;
       letter-spacing: 1.4px;
-      text-transform: uppercase;
-      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.22);
-      min-width: 240px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
     }
 
-    .hero-nav .primary-link:hover {
-      transform: translateY(-2px) scale(1.02);
+    .primary-link:hover {
+      transform: translateY(-2px) scale(1.03);
       background: #ffefe2;
     }
 
-    /* SECONDARY LINKS */
     .secondary-links {
       display: flex;
       gap: 14px;
-      flex-wrap: wrap;
-      justify-content: center;
     }
 
     .secondary-links button {
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(255,255,255,0.1);
       color: white;
-      border: 1px solid rgba(255, 255, 255, 0.55);
+      border: 1px solid rgba(255,255,255,0.6);
       border-radius: 999px;
-      padding: 11px 22px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.6px;
-      backdrop-filter: blur(6px);
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: 0.25s;
     }
 
     .secondary-links button:hover {
-      background: rgba(255, 255, 255, 0.18);
-      border-color: #ffb17a;
-      color: #fff;
-      transform: translateY(-1px);
+      background: rgba(255,255,255,0.2);
     }
 
     /* SECTIONS */
     section {
-      padding: 76px 20px;
-      max-width: 1000px;
-      margin: 0 auto;
       display: none;
+      max-width: 1000px;
+      margin: auto;
+      padding: 80px 20px;
     }
 
     section h2 {
       text-align: center;
-      margin: 0 0 20px;
       font-family: 'Playfair Display', serif;
       font-size: 2.4rem;
-      color: #151515;
     }
 
     section p {
       text-align: center;
-      max-width: 650px;
-      margin: 0 auto 20px;
-      line-height: 1.7;
+      max-width: 600px;
+      margin: 10px auto;
       color: #444;
     }
 
     /* PORTFOLIO IMAGES */
-    img.portfolio-page {
-      display: block;
+    .portfolio-page {
       width: 80%;
+      display: block;
       margin: 30px auto;
       border-radius: 14px;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.15);
+      transition: 0.25s;
     }
 
-    img.portfolio-page:hover {
+    .portfolio-page:hover {
       transform: translateY(-4px);
-      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
     }
 
-    /* ICON LINKS AT BOTTOM OF PORTFOLIO */
+    /* ICON LINKS */
     .quick-links {
       display: flex;
       justify-content: center;
-      gap: 28px;
+      gap: 30px;
       margin-top: 50px;
     }
 
     .quick-links i {
-      font-size: 1.7rem;
-      color: #111;
+      font-size: 1.8rem;
       cursor: pointer;
-      transition: transform 0.25s ease, color 0.25s ease;
+      transition: 0.25s;
     }
 
     .quick-links i:hover {
@@ -198,110 +178,75 @@
       transform: translateY(-3px);
     }
 
-    /* FOOTER */
     footer {
-      text-align: center;
-      padding: 36px 20px;
       background: #111;
       color: white;
+      text-align: center;
+      padding: 30px;
     }
 
-    @media (max-width: 640px) {
-      header {
-        padding: 90px 20px 60px;
-      }
-
-      .hero-nav .primary-link {
-        width: 100%;
-        max-width: 280px;
-      }
-
-      .secondary-links {
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-      }
-
-      .secondary-links button {
-        width: 100%;
-        max-width: 220px;
-      }
-
-      img.portfolio-page {
-        width: 92%;
-      }
+    @media (max-width: 600px) {
+      .portfolio-page { width: 95%; }
+      .secondary-links { flex-direction: column; }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
-    <img src="./logo.png" alt="JustMaybeMi logo" class="logo" />
-    <h1>JustMaybeMi</h1>
-    <p class="hero-subtext">
-      Visual work, creative direction, and curated projects.
-    </p>
+<header>
+  <!-- ✅ Logo -->
+  <img src="./logo.png" class="logo" alt="logo">
 
-    <div class="hero-nav">
-      <button class="primary-link" onclick="showSection('portfolio')">Portfolio</button>
+  <h1>JustMaybeMi</h1>
+  <p class="hero-subtext">
+    Visual work, creative direction, and curated projects.
+  </p>
 
-      <div class="secondary-links">
-        <button onclick="showSection('pricing')">Pricing</button>
-        <button onclick="showSection('contact')">Contact</button>
-      </div>
+  <div class="hero-nav">
+    <button class="primary-link" onclick="showSection('portfolio')">Portfolio</button>
+
+    <div class="secondary-links">
+      <button onclick="showSection('pricing')">Pricing</button>
+      <button onclick="showSection('contact')">Contact</button>
     </div>
-  </header>
+  </div>
+</header>
 
-  <section id="portfolio">
-    <h2>Portfolio</h2>
-    <p>A selection of recent work exploring style, visuals, and creative expression.</p>
+<section id="portfolio">
+  <h2>Portfolio</h2>
 
-    <img src="./1.png" alt="Portfolio Page 1" class="portfolio-page" />
-    <img src="./2.png" alt="Portfolio Page 2" class="portfolio-page" />
-    <img src="./3.png" alt="Portfolio Page 3" class="portfolio-page" />
-    <img src="./4.png" alt="Portfolio Page 4" class="portfolio-page" />
-    <img src="./5.png" alt="Portfolio Page 5" class="portfolio-page" />
-    <img src="./6.png" alt="Portfolio Page 6" class="portfolio-page" />
-    <img src="./7.png" alt="Portfolio Page 7" class="portfolio-page" />
-    <img src="./8.png" alt="Portfolio Page 8" class="portfolio-page" />
+  <img src="./1.png" class="portfolio-page">
+  <img src="./2.png" class="portfolio-page">
+  <img src="./3.png" class="portfolio-page">
 
-    <div class="quick-links">
-      <i class="fa-solid fa-tag" onclick="showSection('pricing')" title="Pricing"></i>
-      <i class="fa-solid fa-envelope" onclick="showSection('contact')" title="Contact"></i>
-    </div>
-  </section>
+  <div class="quick-links">
+    <i class="fa-solid fa-tag" onclick="showSection('pricing')"></i>
+    <i class="fa-solid fa-envelope" onclick="showSection('contact')"></i>
+  </div>
+</section>
 
-  <section id="pricing">
-    <h2>Pricing</h2>
-    <p>Pricing is tailored to each project depending on scope, style, and requirements.</p>
-    <p>For inquiries or custom packages, feel free to reach out.</p>
-  </section>
+<section id="pricing">
+  <h2>Pricing</h2>
+  <p>Pricing is tailored to each project.</p>
+</section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: olaitanferimi@gmail.com</p>
-    <p>Instagram  — @justmaybemi</p>
-  </section>
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: olaitanferimi@gmail.com</p>
+</section>
 
-  <footer>
-    <p>&copy; 2026 JustMaybeMi. All rights reserved.</p>
-  </footer>
+<footer>
+  <p>© 2026 JustMaybeMi</p>
+</footer>
 
-  <script>
-    function showSection(id) {
-      const sections = document.querySelectorAll('section');
-      sections.forEach(section => {
-        section.style.display = 'none';
-      });
-
-      const selectedSection = document.getElementById(id);
-      if (selectedSection) {
-        selectedSection.style.display = 'block';
-        selectedSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  </script>
+<script>
+function showSection(id) {
+  document.querySelectorAll("section").forEach(s => s.style.display = "none");
+  document.getElementById(id).style.display = "block";
+  window.scrollTo({ top: document.getElementById(id).offsetTop, behavior: 'smooth' });
+}
+</script>
 
 </body>
 </html>
