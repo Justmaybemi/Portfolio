@@ -295,8 +295,16 @@ body.loaded {
     <p>© 2026 JustMaybeMi</p>
   </footer>
 
-  <script>
-    function showSection(id) {
+<script>
+  // Fade in on load
+  window.onload = function() {
+    document.body.classList.add("loaded");
+  };
+
+  function showSection(id) {
+    document.body.classList.remove("loaded");
+
+    setTimeout(function() {
       document.querySelectorAll('section').forEach(section => {
         section.style.display = 'none';
       });
@@ -306,18 +314,27 @@ body.loaded {
         selectedSection.style.display = 'block';
         selectedSection.scrollIntoView({ behavior: 'smooth' });
       }
-    }
 
-    function goHome(event) {
-      event.preventDefault();
+      document.body.classList.add("loaded");
+    }, 300);
+  }
 
+  function goHome(event) {
+    event.preventDefault();
+
+    document.body.classList.remove("loaded");
+
+    setTimeout(function() {
       document.querySelectorAll('section').forEach(section => {
         section.style.display = 'none';
       });
 
       document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
-    }
-  </script>
+
+      document.body.classList.add("loaded");
+    }, 300);
+  }
+</script>
 
 </body>
 </html>
