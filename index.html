@@ -20,21 +20,21 @@
     }
 
     body {
-   margin: 0;
-  font-family: 'Manrope', sans-serif;
-  color: #111;
-  background: linear-gradient(-45deg, #ffffff, #f4efe9, #7B024D, #ff8ac6);
-  background-size: 400% 400%;
-  animation: gradientShift 8s ease infinite;
-  min-height: 100vh;
+      margin: 0;
+      font-family: 'Manrope', sans-serif;
+      color: #111;
+      background: linear-gradient(-45deg, #ffffff, #f4efe9, #7B024D, #ff8ac6);
+      background-size: 400% 400%;
+      animation: gradientShift 8s ease infinite;
+      min-height: 100vh;
 
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
 
-body.loaded {
-  opacity: 1;
-}
+    body.loaded {
+      opacity: 1;
+    }
 
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
@@ -270,8 +270,7 @@ body.loaded {
     <img src="./5.png" alt="Portfolio Page 5" class="portfolio-page">
     <img src="./6.png" alt="Portfolio Page 6" class="portfolio-page">
     <img src="./7.png" alt="Portfolio Page 7" class="portfolio-page">
-    <img src="./8.png
-      " alt="Portfolio Page 8" class="portfolio-page">
+    <img src="./8.png" alt="Portfolio Page 8" class="portfolio-page">
 
     <div class="quick-links">
       <i class="fa-solid fa-tag" onclick="showSection('pricing')" title="Pricing"></i>
@@ -295,46 +294,46 @@ body.loaded {
     <p>© 2026 JustMaybeMi</p>
   </footer>
 
-<script>
-  // Fade in on load
-  window.onload = function() {
-    document.body.classList.add("loaded");
-  };
-
-  function showSection(id) {
-    document.body.classList.remove("loaded");
-
-    setTimeout(function() {
-      document.querySelectorAll('section').forEach(section => {
-        section.style.display = 'none';
-      });
-
-      const selectedSection = document.getElementById(id);
-      if (selectedSection) {
-        selectedSection.style.display = 'block';
-        selectedSection.scrollIntoView({ behavior: 'smooth' });
-      }
-
+  <script>
+    // Fade in on load
+    window.onload = function() {
       document.body.classList.add("loaded");
-    }, 300);
-  }
+    };
 
-  function goHome(event) {
-    event.preventDefault();
+    function showSection(id) {
+      document.body.classList.remove("loaded");
 
-    document.body.classList.remove("loaded");
+      setTimeout(function() {
+        document.querySelectorAll('section').forEach(section => {
+          section.style.display = 'none';
+        });
 
-    setTimeout(function() {
-      document.querySelectorAll('section').forEach(section => {
-        section.style.display = 'none';
-      });
+        const selectedSection = document.getElementById(id);
+        if (selectedSection) {
+          selectedSection.style.display = 'block';
+          selectedSection.scrollIntoView({ behavior: 'smooth' });
+        }
 
-      document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+        document.body.classList.add("loaded");
+      }, 300);
+    }
 
-      document.body.classList.add("loaded");
-    }, 300);
-  }
-</script>
+    function goHome(event) {
+      event.preventDefault();
+
+      document.body.classList.remove("loaded");
+
+      setTimeout(function() {
+        document.querySelectorAll('section').forEach(section => {
+          section.style.display = 'none';
+        });
+
+        document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+
+        document.body.classList.add("loaded");
+      }, 300);
+    }
+  </script>
 
 </body>
 </html>
