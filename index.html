@@ -1,159 +1,430 @@
 <!doctype html>
 <html lang="en-CA">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>JustMaybeMi Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<meta name="description" content="Professional photography services including birthdays, portraits, group shots, and headshots." />
+  <title>JustMaybeMi | Portfolio</title>
+  <meta name="description" content="Professional photography services including birthdays, portraits, group shots, and headshots." />
 
-https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap
-https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  font-family: 'Manrope', sans-serif;
-  color: #111;
-  background: linear-gradient(-45deg, #ffffff, #f4efe9, #7B024D, #ff8ac6);
-  background-size: 400% 400%;
-  animation: gradientShift 8s ease infinite;
-  min-height: 100vh;
-}
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-header {
-  text-align: center;
-  padding: 115px 20px 80px;
-  color: white;
-}
-section {
-  display: none;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 80px 20px;
-}
-button {
-  border-radius: 999px;
-  padding: 16px 44px;
-  font-weight: 700;
-  cursor: pointer;
-}
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-input, select, textarea {
-  padding: 14px;
-  border-radius: 10px;
-  border: none;
-  font-size: 16px;
-}
-footer {
-  text-align: center;
-  color: white;
-  padding: 30px 20px;
-}
-</style>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Manrope', sans-serif;
+      color: #111;
+      background: linear-gradient(-45deg, #ffffff, #f4efe9, #7B024D, #ff8ac6);
+      background-size: 400% 400%;
+      animation: gradientShift 8s ease infinite;
+      min-height: 100vh;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      position: relative;
+      text-align: center;
+      color: white;
+      padding: 115px 20px 80px;
+      overflow: hidden;
+      background: transparent;
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.72), rgba(0, 0, 0, 0.58)),
+        url("logo.png") center/32% no-repeat;
+      opacity: 0.22;
+      z-index: 0;
+    }
+
+    .logo {
+      width: 58px;
+      height: 58px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.12);
+      padding: 4px;
+      backdrop-filter: blur(4px);
+    }
+
+    .site-title {
+      display: inline-block;
+      margin: 0 0 12px;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 5rem);
+      line-height: 1;
+      color: white;
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .site-title:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .hero-subtext {
+      max-width: 600px;
+      margin: 0 auto 40px;
+      font-size: 1.08rem;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.65;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .primary-link {
+      background: white;
+      color: #111;
+      border: none;
+      border-radius: 999px;
+      padding: 16px 44px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .primary-link:hover {
+      transform: translateY(-2px) scale(1.02);
+      background: #ffefe2;
+    }
+
+    .secondary-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .secondary-links button {
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 999px;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(6px);
+    }
+
+    .secondary-links button:hover {
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateY(-1px);
+    }
+
+    section {
+      display: none;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 80px 20px;
+      background: transparent;
+    }
+
+    section h2 {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      margin: 0 0 18px;
+      color: white;
+    }
+
+    section p {
+      text-align: center;
+      max-width: 620px;
+      margin: 10px auto;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.7;
+    }
+
+    .portfolio-page {
+      width: 80%;
+      display: block;
+      margin: 30px auto;
+      border-radius: 14px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .portfolio-page:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+    }
+
+    .quick-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .quick-links i {
+      font-size: 1.8rem;
+      color: white;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .quick-links i:hover {
+      color: #ffd4b8;
+      transform: translateY(-3px);
+    }
+
+    input, select, textarea {
+      font-size: 16px;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      background: rgba(255, 255, 255, 0.12) !important;
+      border-color: rgba(255, 255, 255, 0.4) !important;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    footer {
+      background: transparent;
+      color: white;
+      text-align: center;
+      padding: 30px 20px 40px;
+    }
+
+    @media (max-width: 600px) {
+      .portfolio-page {
+        width: 95%;
+      }
+
+      .secondary-links {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .logo {
+        width: 52px;
+        height: 52px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header id="home">
-  <h1>JustMaybeMi</h1>
-  <p>Professional photography for every moment.</p>
-  <button onclick="showSection('contact')">Book Now</button>
-</header>
+  <header id="home">
+    <img src="logo.png" class="logo" alt="JustMaybeMi logo">
 
-<section id="portfolio">
-  <h2>Portfolio</h2>
-  ./1.png
-  ./2.png
-  ./3.png
-  ./4.png
-  ./5.png
-  ./6.png
-  ./7.png
-  ./8.png
-</section>
+    <a href="#home" class="site-title" onclick="goHome(event)">JustMaybeMi</a>
 
-<section id="pricing">
-  <h2>Pricing</h2>
-  <p>Pricing is tailored to each session depending on your needs.</p>
-</section>
+    <p class="hero-subtext">
+      Professional photography for every moment. Birthdays, portraits, group photos, and headshots.
+    </p>
 
-<section id="contact">
-<h2>Book a Session</h2>
+    <div class="hero-nav">
+      <button class="primary-link" onclick="showSection('portfolio')">Portfolio</button>
 
-<form id="bookingForm">
-  <input name="name" placeholder="Full Name" required>
-  <input name="email" type="email" placeholder="Email Address" required>
-  <input name="phone" placeholder="Phone Number">
+      <div class="secondary-links">
+        <button onclick="showSection('pricing')">Pricing</button>
+        <button onclick="showSection('contact')">Book Now</button>
+      </div>
+    </div>
+  </header>
 
-  <select name="shootType" required>
-    <option value="">Photoshoot Type</option>
-    <option value="Birthday">Birthday</option>
-    <option value="Portrait">Portrait</option>
-    <option value="Group">Group</option>
-    <option value="Headshots">Headshots</option>
-  </select>
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <p>A selection of recent work exploring style, visuals, and creative expression.</p>
 
-  <input type="date" name="sessionDate" required>
-  <textarea name="message" placeholder="Additional details..."></textarea>
+    <img src="./1.png" alt="Portfolio Page 1" class="portfolio-page">
+    <img src="./2.png" alt="Portfolio Page 2" class="portfolio-page">
+    <img src="./3.png" alt="Portfolio Page 3" class="portfolio-page">
+    <img src="./4.png" alt="Portfolio Page 4" class="portfolio-page">
+    <img src="./5.png" alt="Portfolio Page 5" class="portfolio-page">
+    <img src="./6.png" alt="Portfolio Page 6" class="portfolio-page">
+    <img src="./7.png" alt="Portfolio Page 7" class="portfolio-page">
+    <img src="./8.png" alt="Portfolio Page 8" class="portfolio-page">
 
-  <button type="submit">Send Inquiry</button>
-</form>
-</section>
+    <div class="quick-links">
+      <i class="fa-solid fa-tag" onclick="showSection('pricing')" title="Pricing"></i>
+      <i class="fa-solid fa-envelope" onclick="showSection('contact')" title="Book a Session"></i>
+    </div>
+  </section>
 
-<footer>
-<p>© 2026 JustMaybeMi</p>
-</footer>
+  <section id="pricing">
+    <h2>Pricing</h2>
+    <p>Pricing is tailored to each session depending on the type of shoot, duration, and specific requirements.</p>
+    <p>For custom packages or inquiries, feel free to reach out through the booking form.</p>
+  </section>
 
-<!-- ✅ EMAILJS (ONLY NEW ADDITION) -->
-https://cdn.jsdelivr.net/npm/emailjs@3/dist/email.min.jsscript>
-<script>
-  (function () {
-    emailjs.init("-poOx7v3BbkajmYFg");
-  })();
-</script>
+  <section id="contact">
+    <h2>Book a Session</h2>
+    <p>Let's capture your most beautiful moments. Fill out the form below and I'll get back to you within 24 hours.</p>
 
-<script>
-document.getElementById('bookingForm').addEventListener('submit', function(e) {
-  e.preventDefault();
+    <div style="max-width: 680px; margin: 50px auto 0; background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 18px; padding: 50px 40px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);">
+      
+      <form id="bookingForm" style="display: flex; flex-direction: column; gap: 22px;">
+        
+        <!-- Name Field -->
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <label style="font-size: 0.95rem; font-weight: 600; color: rgba(255, 255, 255, 0.95); letter-spacing: 0.5px;">Full Name</label>
+          <input type="text" name="name" required placeholder="Your name" style="padding: 14px 18px; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 10px; background: rgba(255, 255, 255, 0.06); color: white; font-family: 'Manrope', sans-serif; font-size: 1rem; transition: all 0.25s ease; backdrop-filter: blur(4px);">
+        </div>
 
-  emailjs.sendForm(
-    'service_bgmuzzt',
-    'template_42g4cxq',
-    this
-  ).then(
-    function () {
-      alert('Thank you for your booking inquiry! I will get back to you within 24 hours.');
-      document.getElementById('bookingForm').reset();
-    },
-    function (error) {
-      console.error(error);
-      alert('There was an issue sending your inquiry. Please email olaitanferimi@gmail.com directly.');
+        <!-- Email Field -->
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <label style="font-size: 0.95rem; font-weight: 600; color: rgba(255, 255, 255, 0.95); letter-spacing: 0.5px;">Email Address</label>
+          <input type="email" name="email" required placeholder="your@email.com" style="padding: 14px 18px; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 10px; background: rgba(255, 255, 255, 0.06); color: white; font-family: 'Manrope', sans-serif; font-size: 1rem; transition: all 0.25s ease; backdrop-filter: blur(4px);">
+        </div>
+
+        <!-- Contact Number Field -->
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <label style="font-size: 0.95rem; font-weight: 600; color: rgba(255, 255, 255, 0.95); letter-spacing: 0.5px;">Phone Number</label>
+          <input type="tel" name="phone" placeholder="+1 (555) 000-0000" style="padding: 14px 18px; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 10px; background: rgba(255, 255, 255, 0.06); color: white; font-family: 'Manrope', sans-serif; font-size: 1rem; transition: all 0.25s ease; backdrop-filter: blur(4px);">
+        </div>
+
+        <!-- Photoshoot Type -->
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <label style="font-size: 0.95rem; font-weight: 600; color: rgba(255, 255, 255, 0.95); letter-spacing: 0.5px;">Photoshoot Type</label>
+          <select name="shootType" required style="padding: 14px 18px; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 10px; background: rgba(255, 255, 255, 0.06); color: white; font-family: 'Manrope', sans-serif; font-size: 1rem; transition: all 0.25s ease; backdrop-filter: blur(4px); cursor: pointer;">
+            <option value="" style="background: #222; color: white;">Select photoshoot type</option>
+            <option value="birthday" style="background: #222; color: white;">Birthday Photoshoot</option>
+            <option value="portrait" style="background: #222; color: white;">Portrait Photoshoot</option>
+            <option value="group" style="background: #222; color: white;">Group Photoshoot</option>
+            <option value="headshots" style="background: #222; color: white;">Headshots</option>
+          </select>
+        </div>
+
+        <!-- Session Date -->
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <label style="font-size: 0.95rem; font-weight: 600; color: rgba(255, 255, 255, 0.95); letter-spacing: 0.5px;">Preferred Session Date</label>
+          <input type="date" name="sessionDate" required style="padding: 14px 18px; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 10px; background: rgba(255, 255, 255, 0.06); color: white; font-family: 'Manrope', sans-serif; font-size: 1rem; transition: all 0.25s ease; backdrop-filter: blur(4px); color-scheme: dark;">
+        </div>
+
+        <!-- Additional Notes -->
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <label style="font-size: 0.95rem; font-weight: 600; color: rgba(255, 255, 255, 0.95); letter-spacing: 0.5px;">Additional Details</label>
+          <textarea name="message" placeholder="Share any additional details, preferences, or special requests..." style="padding: 14px 18px; border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 10px; background: rgba(255, 255, 255, 0.06); color: white; font-family: 'Manrope', sans-serif; font-size: 1rem; min-height: 100px; resize: vertical; transition: all 0.25s ease; backdrop-filter: blur(4px); line-height: 1.5;"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" style="background: white; color: #111; border: none; border-radius: 999px; padding: 16px 44px; font-size: 1.1rem; font-weight: 700; letter-spacing: 1.2px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18); margin-top: 10px;">
+          Send Inquiry
+        </button>
+      </form>
+
+      <div style="display: flex; flex-direction: column; gap: 16px; text-align: center; margin-top: 35px; padding-top: 25px; border-top: 1px solid rgba(255, 255, 255, 0.15);">
+        <div>
+          <p style="color: rgba(255, 255, 255, 0.68); font-size: 0.9rem; margin: 0 0 8px 0;">Or reach out directly:</p>
+          <p style="color: rgba(255, 255, 255, 0.95); font-size: 0.95rem; margin: 0; font-weight: 600;">olaitanferimi@gmail.com</p>
+        </div>
+        <div style="display: flex; gap: 12px; justify-content: center; align-items: center;">
+          <a href="https://instagram.com/justmaybemi" target="_blank" style="display: flex; align-items: center; gap: 8px; color: rgba(255, 255, 255, 0.88); text-decoration: none; transition: all 0.25s ease;">
+            <i class="fa-brands fa-instagram" style="font-size: 1.4rem;"></i>
+            <span style="font-size: 0.9rem;">@JustMaybeMi</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 JustMaybeMi</p>
+  </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(section => {
+        section.style.display = 'none';
+      });
+
+      const selectedSection = document.getElementById(id);
+      if (selectedSection) {
+        selectedSection.style.display = 'block';
+        selectedSection.scrollIntoView({ behavior: 'smooth' });
+      }
     }
-  );
-});
-</script>
 
-<script>
-function showSection(id) {
-  document.querySelectorAll('section').forEach(section => section.style.display = 'none');
-  const selectedSection = document.getElementById(id);
-  if (selectedSection) {
-    selectedSection.style.display = 'block';
-    selectedSection.scrollIntoView({ behavior: 'smooth' });
-  }
-}
-</script>
+    function goHome(event) {
+      event.preventDefault();
+
+      document.querySelectorAll('section').forEach(section => {
+        section.style.display = 'none';
+      });
+
+      document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const formData = new FormData(this);
+      const clientEmail = formData.get('email');
+      const clientName = formData.get('name');
+      
+      fetch('https://formspree.io/f/xdkgzkvq', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          shootType: formData.get('shootType'),
+          sessionDate: formData.get('sessionDate'),
+          message: formData.get('message'),
+          _replyto: clientEmail,
+          _subject: 'New Booking Inquiry from ' + clientName
+        })
+      }).then(response => {
+        if(response.ok) {
+          alert('Thank you for your booking inquiry! I will get back to you within 24 hours at ' + clientEmail + '.');
+          document.getElementById('bookingForm').reset();
+        } else {
+          alert('There was an issue sending your inquiry. Please email olaitanferimi@gmail.com directly.');
+        }
+      }).catch(error => {
+        console.error('Error:', error);
+        alert('There was an issue sending your inquiry. Please email olaitanferimi@gmail.com directly.');
+      });
+    });
+  </script>
 
 </body>
 </html>
