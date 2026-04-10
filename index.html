@@ -402,11 +402,11 @@
         message: formData.get('message')
       };
 
-      emailjs.send(
-        "service_bgmuzzt",
-        "template_42g4cxq",
-        templateParams
-      ).then(function() {
+    emailjs.send(
+  "service_bgmuzzt",
+  "template_cup8wvh",
+  templateParams
+).then(function() {
         alert('Thank you for your booking inquiry! I will get back to you within 24 hours at ' + clientEmail + '.');
         form.reset();
       }).catch(function(error) {
