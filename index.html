@@ -1,16 +1,108 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>JustMaybeMi | Portfolio</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(-45deg, #ffffff, #f4efe9, #7B024D, #ff8ac6);
+      background-size: 400% 400%;
+      animation: gradientShift 8s ease infinite;
+      color: white;
+      text-align: center;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    section {
+      display: none;
+      padding: 40px 20px;
+    }
+
+    button {
+      padding: 12px 20px;
+      margin: 10px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: none;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1 onclick="goHome(event)">JustMaybeMi</h1>
+
+<button onclick="showSection('portfolio')">Portfolio</button>
+<button onclick="showSection('contact')">Book Now</button>
+
+<section id="portfolio">
+  <h2>Portfolio</h2>
+  <p>Your work here</p>
+</section>
+
+<section id="contact">
+  <h2>Book a Session</h2>
+
+  <div class="container">
+    <form id="bookingForm">
+
+      <input type="text" name="name" placeholder="Full Name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input type="tel" name="phone" placeholder="Phone" />
+
+      <select name="shootType" required>
+        <option value="">Select Shoot Type</option>
+        <option value="Birthday">Birthday</option>
+        <option value="Portrait">Portrait</option>
+        <option value="Group">Group</option>
+        <option value="Headshots">Headshots</option>
+      </select>
+
+      <input type="date" name="sessionDate" required />
+      <textarea name="message" placeholder="Additional details"></textarea>
+
+      <button type="submit">Send Inquiry</button>
+
+    </form>
+  </div>
+</section>
+
 <script>
-  emailjs.init("poOx7v3BbKaimYFg");
+  // ✅ FIXED PUBLIC KEY
+  emailjs.init("-poOx7v3BbKaimYFg");
 
   function showSection(id) {
     document.querySelectorAll('section').forEach(section => {
       section.style.display = 'none';
     });
 
-    const selectedSection = document.getElementById(id);
-    if (selectedSection) {
-      selectedSection.style.display = 'block';
-      selectedSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById(id).style.display = 'block';
   }
 
   function goHome(event) {
@@ -19,16 +111,12 @@
     document.querySelectorAll('section').forEach(section => {
       section.style.display = 'none';
     });
-
-    document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
   }
 
   document.getElementById('bookingForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const form = this;
-    const formData = new FormData(form);
-    const clientEmail = formData.get('email');
+    const formData = new FormData(this);
 
     const templateParams = {
       name: formData.get('name'),
@@ -39,20 +127,18 @@
       message: formData.get('message')
     };
 
-    console.log("Using service:", "service_bgmuzzt");
-    console.log("Using template:", "template_cup8wvh");
-
     emailjs.send(
       "service_bgmuzzt",
       "template_cup8wvh",
       templateParams
-    ).then(function(response) {
-      console.log("Email sent successfully:", response);
-      alert("Thank you for your booking inquiry! I will get back to you within 24 hours at " + clientEmail + ".");
-      form.reset();
+    ).then(function() {
+      alert("Booking sent successfully!");
     }).catch(function(error) {
-      console.error("EmailJS full error:", error);
-      alert("There was an issue sending your inquiry. Please email olaitanferimi@gmail.com directly.");
+      console.error("EmailJS error:", error);
+      alert("Failed to send. Email directly instead.");
     });
   });
 </script>
+
+</body>
+</html>
