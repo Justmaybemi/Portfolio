@@ -361,60 +361,61 @@
     <p>© 2026 JustMaybeMi</p>
   </footer>
 
-  <script>
-    emailjs.init("poOx7v3BbKaimYFg");
+ <script>
+  emailjs.init("poOx7v3BbKaimYFg");
 
-    function showSection(id) {
-      document.querySelectorAll('section').forEach(section => {
-        section.style.display = 'none';
-      });
+  function showSection(id) {
+    document.querySelectorAll('section').forEach(section => {
+      section.style.display = 'none';
+    });
 
-      const selectedSection = document.getElementById(id);
-      if (selectedSection) {
-        selectedSection.style.display = 'block';
-        selectedSection.scrollIntoView({ behavior: 'smooth' });
-      }
+    const selectedSection = document.getElementById(id);
+    if (selectedSection) {
+      selectedSection.style.display = 'block';
+      selectedSection.scrollIntoView({ behavior: 'smooth' });
     }
+  }
 
-    function goHome(event) {
-      event.preventDefault();
+  function goHome(event) {
+    event.preventDefault();
 
-      document.querySelectorAll('section').forEach(section => {
-        section.style.display = 'none';
-      });
+    document.querySelectorAll('section').forEach(section => {
+      section.style.display = 'none';
+    });
 
-      document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+  }
 
-    document.getElementById('bookingForm').addEventListener('submit', function(e) {
-      e.preventDefault();
+  document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-      const form = this;
-      const formData = new FormData(form);
-      const clientEmail = formData.get('email');
+    const form = this;
+    const formData = new FormData(form);
+    const clientEmail = formData.get('email');
 
-      const templateParams = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        phone: formData.get('phone'),
-        shootType: formData.get('shootType'),
-        sessionDate: formData.get('sessionDate'),
-        message: formData.get('message')
-      };
+    const templateParams = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      shootType: formData.get('shootType'),
+      sessionDate: formData.get('sessionDate'),
+      message: formData.get('message')
+    };
 
     emailjs.send(
-  "service_bgmuzzt",
-  "template_cup8wvh",
-  templateParams
-).then(function() {
-        alert('Thank you for your booking inquiry! I will get back to you within 24 hours at ' + clientEmail + '.');
-        form.reset();
-      }).catch(function(error) {
-        console.error('EmailJS error:', error);
-        alert('There was an issue sending your inquiry. Please email olaitanferimi@gmail.com directly.');
-      });
+      "service_bgmuzzt",
+      "template_cup8wvh",
+      templateParams
+    ).then(function(response) {
+      console.log("Email sent successfully:", response);
+      alert("Thank you for your booking inquiry! I will get back to you within 24 hours at " + clientEmail + ".");
+      form.reset();
+    }).catch(function(error) {
+      console.error("EmailJS full error:", error);
+      alert("There was an issue sending your inquiry. Please email olaitanferimi@gmail.com directly.");
     });
-  </script>
+  });
+</script>
 
 </body>
 </html>
