@@ -2,8 +2,7 @@
 <!doctype html>
 <html lang="en-CA">
 <head>
-  <meta charset=
-"UTF-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>JustMaybeMi | Portfolio</title>
@@ -59,19 +58,28 @@
       z-index: 0;
     }
 
+    .brand-home {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+    }
+
     .logo {
       width: 58px;
       height: 58px;
       object-fit: cover;
       border-radius: 50%;
       margin-bottom: 14px;
-      position: relative;
-      z-index: 1;
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
       border: 2px solid rgba(255, 255, 255, 0.7);
       background: rgba(255, 255, 255, 0.12);
       padding: 4px;
       backdrop-filter: blur(4px);
+      transition: transform 0.25s ease, opacity 0.25s ease;
     }
 
     .site-title {
@@ -82,13 +90,12 @@
       line-height: 1;
       color: white;
       text-decoration: none;
-      position: relative;
-      z-index: 1;
       transition: opacity 0.25s ease, transform 0.25s ease;
     }
 
-    .site-title:hover {
-      opacity: 0.9;
+    .brand-home:hover .logo,
+    .brand-home:hover .site-title {
+      opacity: 0.92;
       transform: translateY(-1px);
     }
 
@@ -116,18 +123,22 @@
       color: #111;
       border: none;
       border-radius: 999px;
-      padding: 16px 44px;
-      font-size: 1.1rem;
+      padding: 18px 54px;
+      font-size: 1.05rem;
       font-weight: 700;
-      letter-spacing: 1.2px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
       cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+      transition: all 0.35s ease;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
     }
 
     .primary-link:hover {
-      transform: translateY(-2px) scale(1.02);
-      background: #ffefe2;
+      transform: translateY(-3px) scale(1.02);
+      background: #fff7f1;
+      box-shadow: 0 22px 55px rgba(0, 0, 0, 0.24);
     }
 
     .secondary-links {
@@ -156,26 +167,47 @@
       transform: translateY(-1px);
     }
 
+    .client-access-row {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      margin-top: 2px;
+    }
+
     .client-access {
-      display: inline-block;
-      padding: 11px 22px;
-      border-radius: 999px;
-      font-size: 0.82rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0;
+      font-size: 0.78rem;
       font-weight: 600;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       text-decoration: none;
-      color: rgba(255, 255, 255, 0.88);
-      border: 1px solid rgba(255, 255, 255, 0.45);
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(8px);
+      color: rgba(255, 255, 255, 0.78);
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .client-access::before,
+    .client-access::after {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.32);
       transition: all 0.25s ease;
     }
 
     .client-access:hover {
-      background: rgba(255, 255, 255, 0.16);
       color: white;
+      letter-spacing: 0.24em;
       transform: translateY(-1px);
+    }
+
+    .client-access:hover::before,
+    .client-access:hover::after {
+      background: rgba(255, 255, 255, 0.58);
+      width: 42px;
     }
 
     section {
@@ -272,10 +304,20 @@
         height: 52px;
       }
 
-      .client-access {
+      .primary-link {
         width: 100%;
-        max-width: 260px;
+        max-width: 280px;
         text-align: center;
+        padding: 17px 28px;
+      }
+
+      .client-access {
+        letter-spacing: 0.18em;
+      }
+
+      .client-access::before,
+      .client-access::after {
+        width: 22px;
       }
     }
   </style>
@@ -284,21 +326,27 @@
 <body>
 
   <header id="home">
-    <img src="logo.png" class="logo" alt="JustMaybeMi logo">
-
-    <a href="#home" class="site-title" onclick="goHome(event)">JustMaybeMi</a>
+    <a href="#home" class="brand-home" onclick="goHome(event)" aria-label="Go to homepage">
+      <img src="logo.png" class="logo" alt="JustMaybeMi logo">
+      <span class="site-title">JustMaybeMi</span>
+    </a>
 
     <p class="hero-subtext">
       Professional photography for every moment. Birthdays, portraits, group photos, and headshots.
     </p>
 
     <div class="hero-nav">
-      <button class="primary-link" onclick="showSection('portfolio')">Portfolio</button>
+      <button class="primary-link" onclick="showSection('portfolio')">Enter Portfolio</button>
 
       <div class="secondary-links">
         <button onclick="showSection('pricing')">Pricing</button>
         <button onclick="showSection('contact')">Book Now</button>
-        <a href="https://justmaybemi.github.io/Client-Gallery-/" target="_blank" rel="noopener noreferrer" class="client-access">Client Gallery</a>
+      </div>
+
+      <div class="client-access-row">
+        <a href="https://justmaybemi.github.io/Client-Gallery-/" target="_blank" rel="noopener noreferrer" class="client-access">
+          Private Client Gallery
+        </a>
       </div>
     </div>
   </header>
@@ -319,7 +367,6 @@
     <div class="quick-links">
       <i class="fa-solid fa-tag" onclick="showSection('pricing')" title="Pricing"></i>
       <i class="fa-solid fa-envelope" onclick="showSection('contact')" title="Book a Session"></i>
-      <i class="fa-solid fa-images" onclick="window.open('https://justmaybemi.github.io/Client-Gallery-/', '_blank')" title="Client Gallery"></i>
     </div>
   </section>
 
@@ -401,41 +448,41 @@
     emailjs.init("-poOx7v3BbKaimYFg");
 
     function showSection(id) {
-      document.querySelectorAll('section').forEach(section => {
-        section.style.display = 'none';
+      document.querySelectorAll("section").forEach(section => {
+        section.style.display = "none";
       });
 
       const selectedSection = document.getElementById(id);
       if (selectedSection) {
-        selectedSection.style.display = 'block';
-        selectedSection.scrollIntoView({ behavior: 'smooth' });
+        selectedSection.style.display = "block";
+        selectedSection.scrollIntoView({ behavior: "smooth" });
       }
     }
 
     function goHome(event) {
       event.preventDefault();
 
-      document.querySelectorAll('section').forEach(section => {
-        section.style.display = 'none';
+      document.querySelectorAll("section").forEach(section => {
+        section.style.display = "none";
       });
 
-      document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById("home").scrollIntoView({ behavior: "smooth" });
     }
 
-    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+    document.getElementById("bookingForm").addEventListener("submit", function(e) {
       e.preventDefault();
 
       const form = this;
       const formData = new FormData(form);
-      const clientEmail = formData.get('email');
+      const clientEmail = formData.get("email");
 
       const templateParams = {
-        name: formData.get('name'),
-        email: formData.get('email'),
-        phone: formData.get('phone'),
-        shootType: formData.get('shootType'),
-        sessionDate: formData.get('sessionDate'),
-        message: formData.get('message')
+        name: formData.get("name"),
+        email: formData.get("email"),
+        phone: formData.get("phone"),
+        shootType: formData.get("shootType"),
+        sessionDate: formData.get("sessionDate"),
+        message: formData.get("message")
       };
 
       emailjs.send(
@@ -443,11 +490,11 @@
         "template_cup8wvh",
         templateParams
       ).then(function() {
-        alert('Thank you for your booking inquiry! I will get back to you within 24 hours at ' + clientEmail + '.');
+        alert("Thank you for your booking inquiry! I will get back to you within 24 hours at " + clientEmail + ".");
         form.reset();
       }).catch(function(error) {
-        console.error('EmailJS error:', error);
-        alert('There was an issue sending your inquiry. Please email olaitanferimi@gmail.com directly.');
+        console.error("EmailJS error:", error);
+        alert("There was an issue sending your inquiry. Please email olaitanferimi@gmail.com directly.");
       });
     });
   </script>
